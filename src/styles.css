@@ -1,0 +1,36 @@
+/* styles.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  :root {
+    --color-text-darkViolet: 81, 98, 134;
+    --color-green-btn: 112, 191, 68;
+    --color-red-btn: 255, 89, 89;
+    --color-violet-card: 136, 116, 200;
+    --color-base-text: 0, 0, 0;
+    --color-wait-call: 46, 53, 58;
+    --color-colum-color: 244, 247, 253;
+    --color-column-border: 244, 244, 244;
+    --color-card-color: 252, 253, 254;
+    --color-card-border: 218, 218, 218;
+    --color-card-text-bg: 245, 245, 245;
+    --color-column-bg: 244, 247, 253;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
