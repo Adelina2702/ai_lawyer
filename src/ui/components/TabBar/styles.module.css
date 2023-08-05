@@ -1,0 +1,65 @@
+.tab {
+    width: 333px;
+    height: 100%;
+    padding-top: 29px;
+    padding-right: 29px;
+    padding-left: 17px;
+    padding-bottom: 29px;
+    position: fixed;
+    background: linear-gradient(180deg, #667EEA 0%, rgba(102, 126, 234, 0.30) 100%);
+
+}
+
+.img {
+    width: auto;
+}
+
+.tab__header {
+    display: flex;
+
+    align-items: center;
+}
+
+/* styles.module.css */
+.tab__header_img {
+    border-radius: 50%;
+    width: 46px;
+    height: 46px;
+    /* Высота контейнера */
+    background: rebeccapurple;
+    background-size: cover;
+    /* Масштабирование изображения для заполнения контейнера */
+    background-position: center;
+    /* Позиционирование изображения по центру */
+}
+
+.tab__header_name {
+    margin-left: 24px;
+    /* Отступ слева для разделения от изображения */
+    font-size: 16px;
+    text-align: center;
+    color: #FFF;
+
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.newChat {
+    display: flex;
+
+    margin-top: 20px;
+    padding-left: 10px;
+}
+
+.newChat_text {
+    padding-left: 15px;
+    color: #FFF;
+
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+}

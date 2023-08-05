@@ -1,0 +1,41 @@
+.tabBarContainer {
+    display: flex;
+    justify-content: space-between;
+    /* justify-content: space-around; */
+    /* align-items: center; */
+    width: 100%;
+    margin-bottom: 80px;
+}
+
+.info {
+    /* width: 50%; */
+    margin-left: 400px;
+    margin-top: 50px;
+    margin-right: 60px;
+
+}
+
+.info_text {
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 40px;
+}
+
+.info__title {
+
+    font-size: 25px;
+    margin-top: 50px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+
+.info_div {
+    display: flex;
+    margin-top: 50px;
+    justify-content: space-between;
+
+
+}
