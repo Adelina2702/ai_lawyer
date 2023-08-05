@@ -1,22 +1,58 @@
 import React from 'react';
-import Input from '../../components/Input';
 import Background from '../../images/background.png';
-import './Login.css';
-import User from '../../icons/User';
+import Input from '../../components/Input/CustomInput';
+import Email from '../../icons/Email';
+import Password from '../../components/Input/Password';
+import Button from '../../components/Button';
+import { useFormik } from 'formik';
+import { schema } from '../../utils/shcema';
 
-export const LogIn = () => {
+const initialValues = {
+  email: '',
+  password: '',
+};
+const LogIn = () => {
+  const onSubmit = () => {
+    console.log('errror');
+  };
+
+  const formik = useFormik({
+    initialValues,
+    validationSchema: schema,
+    onSubmit,
+  });
+
   return (
-    <div className='container'>
-      <img className='background_image' src={Background} alt='' />
-      <div className='container_right'>
-        <div className='container_right__top'>
-          <span className='container_right__title'>Регистрация</span>
+    <div className='flex'>
+      <img className='h-[100vh]' src={Background} alt='' />
+      <form
+        onSubmit={formik.handleSubmit}
+        className='flex flex-col ml-[270px] mt-[200px]'>
+        <span className='mb-[20px] text-[36px] text-center font-semibold'>
+          Вход
+        </span>
+        <div className='container_right__center'>
+          <Input
+            value={formik.values.email}
+            name='email'
+            onChange={formik.handleChange}
+            label={'Почта'}
+            helperText={formik.errors.email}
+            error={formik.errors.email}
+            icon={<Email />}
+            placeholder={'введите email'}
+          />
+          <Password 
+          value={formik.values.password}
+          onChange={formik.handleChange}
+          error={(formik.touched.password || formik.errors.password)}
+          helperText={formik.errors.password}
+          label={'Пароль'} placeholder={'введите пароль'} />
+          <Button text={'Войти'} />
         </div>
-        <div className="container_right__center">
-        <Input helperText={'Имя пользователя'} icon={<User/>} placeholder={'введите имя'}/>
-        <Input helperText={'Почта'} />
-        </div>
-      </div>
+      </form>
     </div>
   );
 };
+
+export default LogIn;
