@@ -27,7 +27,7 @@ export default function Home() {
         <div className={styles.tabBarContainer}>
 
             <div className={styles.tab}>
-                <TabBar />
+                {/* <TabBar /> */}
 
             </div>
 
