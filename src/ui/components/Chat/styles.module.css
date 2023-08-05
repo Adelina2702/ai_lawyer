@@ -1,0 +1,184 @@
+.content {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 80px;
+    /* height: 100%; */
+}
+
+
+.info {
+
+    margin-top: 10px;
+    margin-right: 50px;
+    margin-left: 380px;
+
+    width: 100%;
+    height: 100%;
+    background: rebeccapurple;
+    padding: 10px;
+
+    border-radius: 20px 20px 0px 0px;
+    border-top: 1px solid #E3E4E5;
+    border-right: 1px solid #E3E4E5;
+    border-left: 1px solid #E3E4E5;
+
+}
+
+.headers {
+    display: flex;
+}
+
+
+.text {
+    padding-left: 35px;
+
+    /* display: flex; */
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: flex-end;
+
+}
+
+.text_title {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.text_text {
+    padding-top: 5px;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+
+.chat {
+    position: relative;
+    /* height: 80vh; */
+    background: #E3E4E5;
+    /* width: 300px; */
+    /* border: 1px solid #ccc; */
+
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    margin-top: 20px;
+    /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); */
+}
+
+.messageContainer {
+    flex-grow: 1;
+    /* background: rebeccapurple; */
+    overflow-y: auto;
+}
+
+.messageContainer::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+
+
+
+.message {
+    background-color: #f2f2f2;
+    padding: 20px 15px;
+    margin: 5px 0;
+    border-radius: 5px;
+    max-width: 20%;
+}
+
+/* Стили для запросов */
+.requestMessage {
+    align-self: flex-start;
+    background-color: #f0f0f0;
+    color: black;
+    margin-left: 10px;
+    /* Отступ слева для разделения между сообщениями */
+}
+
+/* Стили для ответов */
+.responseMessage {
+    align-self: flex-end;
+    background-color: #007bff;
+    color: white;
+    margin-right: 100px;
+    /* Отступ справа для разделения между сообщениями */
+}
+
+
+.inputContainer {
+    display: flex;
+    margin-top: 10px;
+}
+
+
+.headers_icon {
+    width: 60px;
+    /* Задайте желаемую ширину блока */
+    height: 60px;
+    /* Задайте желаемую высоту блока */
+    display: flex;
+    justify-content: center;
+    /* Выравнивание содержимого по горизонтали */
+    align-items: center;
+    /* Выравнивание содержимого по вертикали */
+    background: linear-gradient(180deg, #667EEA 0%, rgba(118, 75, 162, 0) 100%);
+    background-color: lightgray;
+    /* Цвет фона блока */
+    border-radius: 50%;
+    /* Сделать блок круглым */
+}
+
+.icon {
+    max-width: 60%;
+    /* Максимальная ширина изображения */
+    max-height: 60%;
+    /* Максимальная высота изображения */
+}
+
+.inputContainer {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 12px;
+    padding: 4px;
+    padding-left: 20px;
+    padding-right: 10px;
+}
+
+.input {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    padding: 8px;
+}
+
+.sendButton {
+    border: none;
+    outline: none;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 8px;
+    opacity: 0.4;
+
+}
+
+.sendButtonOpacity {
+    border: none;
+    outline: none;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 8px;
+    opacity: 1;
+}
+
+.sendIcon {
+    width: 24px;
+    height: 24px;
+}

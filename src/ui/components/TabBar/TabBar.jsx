@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './styles.module.css'
-import { worker } from '../../images/index.js'
+import { worker, personIcon } from '../../images/index.js'
 import Plus from '../../icons/Plus'
 
 export default function TabBar() {
@@ -10,10 +10,10 @@ export default function TabBar() {
             <div className={styles.tab__header}>
 
                 <div className={styles.tab__header_img}>
-                    <img src={worker} alt='/' className={styles.img} />
+                    <img src={personIcon} alt='/' className={styles.img} />
                 </div>
 
-                <p className={styles.tab__header_name}  >Имя пользователя</p>
+                <p className={styles.tab__header_name}> Имя пользователя</p>
             </div>
 
             <div className={styles.newChat}>
