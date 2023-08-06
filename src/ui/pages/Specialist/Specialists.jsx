@@ -5,6 +5,8 @@ import Card from '../../components/Card';
 import { useDispatch, useSelector } from 'react-redux';
 import { getSpecialists } from '../../../api/specialists';
 import style from './style.module.css'
+import Logo from '../../icons/logo';
+import { Link } from 'react-router-dom';
 
 const Specialists = () => {
 
@@ -21,13 +23,17 @@ const Specialists = () => {
 
     return (
         <div className='flex flex-col'>
+            <Link to="/main" >
+            <div className='flex justify-center p-[10px]'>
+                <Logo />
+            </div>
+            </Link>
             <div className='flex justify-center'>
                 <NavigateButtons
                     buttonType={buttonType}
                     setButtonType={setButtonType}
                 />
             </div>
-            {/* style={{ display: 'flex' }} className='flex justify-center' */}
             <div className={style.card}>
                 {
                     specialists.map((item) => (

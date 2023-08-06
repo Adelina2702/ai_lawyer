@@ -23,7 +23,6 @@ const Card = ({ specialists, username, email, specialization, phone, contact }) 
                                             ''
                 }
             </div>
-
             <div className='flex mb-[12px]'>
                 <BlueMail />
                 <span className='ml-[12px]'>{email}</span>
@@ -36,7 +35,7 @@ const Card = ({ specialists, username, email, specialization, phone, contact }) 
             <a href={contact} target="_blank" rel="noopener noreferrer">
                 <Transition
                     icon={<Chat />}
-                    text="Начать чат"
+                    text="Онлайн чат"
                 />
             </a>
 

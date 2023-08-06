@@ -1,10 +1,10 @@
 import React from 'react';
 import Conteiner from '../../components/Conteiner/Conteiner.jsx';
-import { worker, chat, iconLogo } from '../../images/index.js';
+import { worker, chat } from '../../images/index.js';
 import styles from './Home.module.css';
 import { Link } from 'react-router-dom';
-import BtnMainPage from '../../components/Button/BtnMainPage.jsx';
-import Volny from '../../images/volny.png'
+import Volny from '../../images/volny.png';
+import Logo from '../../icons/logo.jsx';
 
 export default function Home() {
   const data = [
@@ -27,10 +27,9 @@ export default function Home() {
   return (
     <div className={styles.tabBarContainer}>
       <div className={styles.info}>
-        <div className='mb-[46px] flex flex-row-reverse'>
-          {/* <img src={iconLogo} alt="" /> */}
-          <Link to='/register'>
-<BtnMainPage text='Зарегистрироваться'/>
+        <div className='mb-[46px] flex justify-center'>
+          <Link to='/main'>
+            <Logo />
           </Link>
         </div>
         <p className={styles.info_text}>
@@ -54,8 +53,8 @@ export default function Home() {
             </Link>
           ))}
         </div>
-        <div >
-          <img src={Volny} alt="" />
+        <div>
+          <img src={Volny} alt='' />
         </div>
       </div>
     </div>
