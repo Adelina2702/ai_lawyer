@@ -2,41 +2,52 @@
     display: flex;
     justify-content: space-between;
 
-    margin-bottom: 80px;
-    /* height: 100%; */
+    height: 100%;
 }
 
 
 .info {
-
-    margin-top: 10px;
+    /* background: red; */
+    /* margin-top: 10px; */
     margin-right: 50px;
     margin-left: 380px;
-
-    width: 100%;
-    height: 100%;
-    background: rebeccapurple;
-    padding: 10px;
+    height: 100vh;
+    width: calc(100% - 430px);
+    /* Учитывая левый отступ и правый отступ */
+    padding-top: 10px;
+    /* padding-top: 10px; */
 
     border-radius: 20px 20px 0px 0px;
     border-top: 1px solid #E3E4E5;
     border-right: 1px solid #E3E4E5;
     border-left: 1px solid #E3E4E5;
 
+
+
+
 }
 
 .headers {
     display: flex;
+    /* height: 1vh; */
+    align-items: center;
+    padding-left: 10px;
+
 }
 
 
 .text {
-    padding-left: 35px;
+
+    padding-left: 20px;
+    /* padding-left: 35px;
 
     /* display: flex; */
-    flex-direction: column;
+    /* flex-direction: column; */
     /* align-items: center; */
-    justify-content: flex-end;
+    /* justify-content: flex-end;  */
+    /* display: flex;
+    justify-content: space-between; */
+    height: 100%;
 
 }
 
@@ -57,24 +68,23 @@
 
 
 .chat {
-    position: relative;
-    /* height: 80vh; */
-    background: #E3E4E5;
-    /* width: 300px; */
-    /* border: 1px solid #ccc; */
 
     display: flex;
     flex-direction: column;
+    height: 85vh;
+    justify-content: space-between;
+
     padding: 15px;
     margin-top: 20px;
+
+    border-radius: 0px 0px 12px 12px;
+    border: 1px solid #E3E4E5;
+    background: linear-gradient(180deg, #D3BFF3 0%, #328ABC 100%);
+    /* overflow-y: hidden; */
     /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); */
 }
 
-.messageContainer {
-    flex-grow: 1;
-    /* background: rebeccapurple; */
-    overflow-y: auto;
-}
+
 
 .messageContainer::-webkit-scrollbar {
     width: 0;
@@ -83,28 +93,60 @@
 }
 
 
-
+.messageContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    /* flex-grow: 1; */
+    /* background: rebeccapurple; */
+    overflow-y: auto;
+}
 
 .message {
     background-color: #f2f2f2;
     padding: 20px 15px;
     margin: 5px 0;
     border-radius: 5px;
-    max-width: 20%;
+    max-width: 40%;
+    word-break: break-all;
+
 }
+
+.requestDiv {
+    display: flex;
+    justify-content: end;
+
+    width: 100%;
+    align-items: end;
+    gap: 5px;
+    flex-direction: row-reverse;
+}
+
+.responseDiv {
+    align-items: end;
+    display: flex;
+    justify-content: start;
+    gap: 5px;
+    width: 100%;
+}
+
+
 
 /* Стили для запросов */
 .requestMessage {
-    align-self: flex-start;
+
+    float: left;
+    /* width: 100%; */
     background-color: #f0f0f0;
     color: black;
-    margin-left: 10px;
+    /* margin-left: 700px; */
     /* Отступ слева для разделения между сообщениями */
 }
 
 /* Стили для ответов */
 .responseMessage {
-    align-self: flex-end;
+    /* align-self: flex-end; */
+    /* margin-left: 75%; */
     background-color: #007bff;
     color: white;
     margin-right: 100px;
@@ -112,10 +154,24 @@
 }
 
 
+
 .inputContainer {
     display: flex;
-    margin-top: 10px;
+    align-items: center;
+    background: white;
+    border-radius: 12px;
+    padding: 4px;
+    padding-left: 20px;
+    padding-right: 10px;
+    margin-top: 20px;
+    /* position: fixed; */
+    /* bottom: 10px; */
+    /* width: calc(100% - 30px); */
+    /* Учитывая левый и правый паддинг */
+    /* max-width: 500px; */
+
 }
+
 
 
 .headers_icon {
@@ -181,4 +237,59 @@
 .sendIcon {
     width: 24px;
     height: 24px;
+}
+
+.messege_icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+
+
+
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dots {
+    display: flex;
+    align-items: center;
+}
+
+.dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #333;
+    border-radius: 50%;
+    margin: 0 3px;
+    opacity: 0.4;
+}
+
+/* Анимация */
+.dot:nth-child(1) {
+    animation: blink 1s infinite 0.2s;
+}
+
+.dot:nth-child(2) {
+    animation: blink 1s infinite 0.4s;
+}
+
+.dot:nth-child(3) {
+    animation: blink 1s infinite 0.6s;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 1;
+    }
 }

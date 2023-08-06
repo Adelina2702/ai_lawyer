@@ -1,0 +1,10 @@
+.card {
+    width: 95%;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin: 20px auto;
+    /* Перенос на следующую строку при нехватке места */
+    gap: 20px;
+    /* Отступ между карточками */
+}

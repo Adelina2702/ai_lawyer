@@ -1,32 +1,43 @@
 import React, { useEffect, useRef, useState } from 'react'
 import TabBar from '../TabBar/TabBar'
 import styles from './styles.module.css'
-import { personIcon, mainIcon, iconSend } from '../../images/index.js'
+import { personIcon, mainIcon, iconSend, iconLogo } from '../../images/index.js'
+import { postMessage } from '../../../api/chat';
+import { useDispatch, useSelector } from 'react-redux';
+import { saveReqest } from '../../../redux/slices/ChatSlice';
+
 
 
 export default function Chat() {
 
     const [newMessage, setNewMessage] = useState('');
     const messageContainerRef = useRef(null);
+    const { message, status, error } = useSelector(state => state.chat);
 
+    const dispatch = useDispatch();
+
+
+    console.log("status: ", status.postMessageStatus)
     const handleInputChange = (e) => {
         setNewMessage(e.target.value);
     };
-    const [messages, setMessages] = useState([
-        { text: 'Запрос 1', type: 'request' },
-        { text: 'Ответ 1', type: 'response' },
-        { text: 'Запрос 2', type: 'request' },
-        { text: 'Ответ 2', type: 'response' },
 
-    ]);
+
+    useEffect(() => {
+        console.log(
+            "message: ", message
+        )
+
+    }, [message])
 
 
     const handleSendMessage = () => {
         if (newMessage.trim() !== '') {
-            const newMessageObject = { text: newMessage, type: 'request' };
-            setMessages([...messages, newMessageObject]);
 
-            console.log("newMessage: ", messages)
+            dispatch(postMessage({ user_input: newMessage }))
+
+            dispatch(saveReqest({ user_input: newMessage }))
+
             setNewMessage('')
         }
     }
@@ -36,52 +47,74 @@ export default function Chat() {
         if (messageContainerRef.current) {
             messageContainerRef.current.scrollTop = messageContainerRef.current.scrollHeight;
         }
-    }, [messages]);
+    }, [message]);
 
 
     return (
-        <div className={styles.content} >
-            <div className={styles.tab} >
-
+        <div className={styles.content}>
+            <div className={styles.tab}>
                 <TabBar />
             </div>
 
             <div className={styles.info}>
-
                 <div className={styles.headers}>
-
                     <div className={styles.headers_icon}>
                         <img className={styles.icon} src={mainIcon} alt='/' />
-
                     </div>
-
-
                     <div className={styles.text}>
-                        <h1 className={styles.text_title}>Уголовный кодекс КР</h1>
-                        <p className={styles.text_text}> Ваш проводник по налоговому кодексу КР</p>
+                        <h1 className={styles.text_title}>AI JURIST</h1>
+                        <p className={styles.text_text}> Ваш проводник по законам КР</p>
                     </div>
                 </div>
+
                 {/* ОТправька чата */}
 
                 <div className={styles.chat}>
-
                     <div ref={messageContainerRef} className={styles.messageContainer}>
-                        {messages?.map((message, index) => (
+
+
+
+
+
+                        {message?.map((message, index) => (
                             <div
-                                key={index}
-                                className={`${styles.message} 
-                                ${message.type === 'request' ?
-                                        styles.requestMessage :
-                                        styles.responseMessage}`}
-                            >
-                                {message.text}
+                                className={`
+                            ${!message.bot_response ?
+                                        styles.requestDiv :
+                                        styles.responseDiv}`} >
+
+                                <img className={styles.messege_icon} src={
+                                    !message.bot_response ? personIcon : iconLogo
+                                } alt='/' />
+
+                                {/* Loding */}
+
+
+                                <div
+                                    key={index}
+                                    className={`${styles.message} 
+                                  ${!message.bot_response ?
+                                            styles.requestMessage :
+                                            styles.responseMessage}`}>
+
+                                    {message.bot_response ? message.bot_response : message.user_input}
+
+                                </div>
+
                             </div>
                         ))}
+                        {
+                            (status.postMessageStatus === 'Loading message') &&
+                            <div className={styles.loading}>
+                                <div className={styles.dots}>
+                                    <span className={styles.dot}></span>
+                                    <span className={styles.dot}></span>
+                                    <span className={styles.dot}></span>
+                                </div>
+                            </div>
+
+                        }
                     </div>
-
-
-
-
                     <div className={styles.inputContainer}>
                         <input
                             type="text"
@@ -90,7 +123,6 @@ export default function Chat() {
                             onChange={(e) => handleInputChange(e)}
                             className={styles.input}
                         />
-
                         <button
                             className={newMessage.length > 0 ? styles.sendButtonOpacity : styles.sendButton}
                             disabled={!newMessage}
@@ -98,20 +130,9 @@ export default function Chat() {
                             <img src={iconSend} alt='Send'
                                 className={styles.sendIcon} />
                         </button>
-
-
                     </div>
-
-
                 </div>
-
-
-
-
             </div>
-
-
-
         </div>
 
 

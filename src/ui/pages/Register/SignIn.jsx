@@ -5,9 +5,9 @@ import Email from '../../icons/Email';
 import Button from '../../components/Button';
 import Input from '../../components/Input/CustomInput';
 import Password from '../../components/Input/Password';
-import { Link,  } from 'react-router-dom';
+import { Link, } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import  { registerThunk } from '../../../redux/slices/RegisterSlice';
+import { registerThunk } from '../../../redux/slices/RegisterSlice';
 import { useFormik } from 'formik';
 import { schema } from '../../utils/shcema';
 
@@ -23,6 +23,7 @@ export const SignIn = () => {
 
   const onSubmit = (values) => {
     console.log("value", values);
+    console.log("formik: ", formik.values)
     dispatch(registerThunk(values));
     // navigate('/login');
   };
@@ -34,6 +35,7 @@ export const SignIn = () => {
     validateOnChange: false,
     onSubmit,
   });
+
 
   return (
     <div className='flex'>

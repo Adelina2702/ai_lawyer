@@ -5,24 +5,42 @@ import Number from '../../icons/Number';
 import Transition from '../Button/Transition';
 import Chat from '../../icons/Chat';
 
-const Card = () => {
+const Card = ({ specialists, username, email, specialization, phone, contact }) => {
+    console.log("username: ", username)
     return (
-        <div className='w-[294px] h-[416px] bg-[#FCFDFE] border-[#E3E4E5] border rounded-[16px] p-[20px]'>
+        <div className='w-[294px] h-[450px] bg-[#FCFDFE] border-[#E3E4E5] border rounded-[16px] p-[20px]'>
             <img className='rounded-[12px] w-[254px]' src={Person} alt="" />
-            <div className='text-[20px] font-semibold py-[16px]'>Алексей Марков</div>
+            <div className='text-[20px] font-semibold py-[10px]'>{username}</div>
+
+            <div className='text-[15px] mb-[10px]'>
+                {
+                    specialization === 'ugolovnyi' ? 'Уголовный кодекс' :
+                        specialization === 'semeinyi' ? 'Семейный кодекс' :
+                            specialization === 'nalogovyi' ? 'Налоговый кодекс' :
+                                specialization === 'grajdanskyi' ? 'Гражданский кодекс' :
+                                    specialization === 'trudovoyi' ? 'Трудовой кодекс' :
+                                        specialization === 'budjetnyi' ? 'Бюджетный кодекс' :
+                                            ''
+                }
+            </div>
+
             <div className='flex mb-[12px]'>
-                <BlueMail/>
-                <span className='ml-[12px]'>alisamarkova@gmail.com</span>
+                <BlueMail />
+                <span className='ml-[12px]'>{email}</span>
             </div>
             <div className='flex mb-[12px]'>
-                <Number/>
-                <span className='ml-[12px]'>+996 555 444 555</span>
+                <Number />
+                <span className='ml-[12px]'>{phone}</span>
             </div>
-            <Transition
-            icon={<Chat/>}
-            text="Начать чат"
-            />
-            </div>
+
+            <a href={contact} target="_blank" rel="noopener noreferrer">
+                <Transition
+                    icon={<Chat />}
+                    text="Начать чат"
+                />
+            </a>
+
+        </div>
     );
 }
 
