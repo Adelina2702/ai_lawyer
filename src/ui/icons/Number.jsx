@@ -15,9 +15,9 @@ const Number = () => {
         />
       </g>
       <defs>
-        <clipPath id='clip0_1_128'>
+        <clip-path id='clip0_1_128'>
           <rect width='24' height='24' fill='white' />
-        </clipPath>
+        </clip-path>
       </defs>
     </svg>
   );

@@ -6,6 +6,6 @@ import axios from 'axios';
 export const BASE_URL= axios.create({
     baseURL: "https://ai-jurist-ee79723c4149.herokuapp.com/",
     headers: {
-      ContentType: "application/json",
+    "Content-Type": "application/json",
     },
   });

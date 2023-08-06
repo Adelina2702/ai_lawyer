@@ -15,9 +15,9 @@ export default function BlueMail() {
         />
       </g>
       <defs>
-        <clipPath id='clip0_1_125'>
+        <clip-path id='clip0_1_125'>
           <rect width='24' height='24' fill='white' />
-        </clipPath>
+        </clip-path>
       </defs>
     </svg>
   );

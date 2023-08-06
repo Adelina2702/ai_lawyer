@@ -6,9 +6,9 @@ function Plus() {
                 <path d="M19 13.5H13V19.5H11V13.5H5V11.5H11V5.5H13V11.5H19V13.5Z" fill="white" />
             </g>
             <defs>
-                <clipPath id="clip0_32_78">
+                <clip-path id="clip0_32_78">
                     <rect width="24" height="24" fill="white" transform="translate(0 0.5)" />
-                </clipPath>
+                </clip-path>
             </defs>
         </svg>
     )

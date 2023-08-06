@@ -11,7 +11,7 @@ const Password = ({ helperText, label, placeholder, ...rest }) => {
 
     return (
 <div>
-      <div className='mb-[10px] text-[20px] font-medium'>{label}</div>
+      <div className='mb-[5px] text-[20px] font-medium'>{label}</div>
       <label className='relative mb-[20px] text-[20px] font-medium text-gray-900 dark:text-white'>
         <div className='mx-[23px] my-[17px] absolute'>
         {open === false ? (
@@ -33,7 +33,7 @@ const Password = ({ helperText, label, placeholder, ...rest }) => {
           font-normal text-gray-900  dark:placeholder:text[#CECECE]'
           placeholder={placeholder}
         />
-        <div className="text-[red] text-[16px] mb-[25px] max-w-[415px] h-[10px]">
+        <div className="text-[red] text-[15px] mb-[18px] max-w-[415px] h-[10px]">
           {helperText}
         </div>
       </label>

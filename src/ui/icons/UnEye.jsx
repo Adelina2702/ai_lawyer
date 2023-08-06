@@ -15,9 +15,9 @@ export default function UnEye() {
         />
       </g>
       <defs>
-        <clipPath id='clip0_2_248'>
+        <clip-path id='clip0_2_248'>
           <rect width='24' height='24' fill='white' />
-        </clipPath>
+        </clip-path>
       </defs>
     </svg>
   );

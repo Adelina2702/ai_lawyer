@@ -15,6 +15,7 @@ const initialValues = {
   username: '',
   email: '',
   password: '',
+  confirm: ''
 };
 
 export const SignIn = () => {
@@ -74,19 +75,18 @@ export const SignIn = () => {
             placeholder={'введите пароль'}
           />
           <Password
-            name='password'
-            type='password'
-            value={formik.values.password}
+            name='confirm'
+            type='passwod'
+            value={formik.values.confirm}
             onChange={formik.handleChange}
-            error={(formik.touched.password || formik.errors.password)}
-            helperText={formik.errors.password}
+            error={(formik.touched.confirm || formik.errors.confirm)}
+            helperText={formik.errors.confirm}
             label={'Повторите пароль'}
             placeholder={'введите ещё пароль'}
           />
           <Button text={'Регистрация'} />
           <Link to='/login'>
             <div
-
               className='mt-[20px] text-[20px] text-center'>
               Войти в аккаунт
             </div>

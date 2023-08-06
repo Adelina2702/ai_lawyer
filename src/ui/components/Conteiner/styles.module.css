@@ -1,11 +1,10 @@
     .conterner {
-        width: 380px;
+        width: 400px;
         border-radius: 24px;
         border: 1px solid #BBB;
         background: #F5F5F5;
         padding: 15px;
         position: relative;
-
         z-index: 5;
         box-shadow: 3px 12px 16px 0px rgba(102, 126, 234, 0.35);
     }
@@ -13,7 +12,6 @@
 
     .headers {
         display: flex;
-
         width: 100%;
         align-items: center;
         /* Выравниваем элементы по центру горизонтально */
@@ -24,7 +22,7 @@
 
     .conteiner__title {
         color: #000;
-        font-size: 25px;
+        font-size: 23px;
         margin: 50px 0 0;
         font-style: normal;
         font-weight: 600;
@@ -32,23 +30,23 @@
     }
 
     .headers__text {
-        font-size: 18px;
+        height: 70px;
+        font-size: 16px;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
-        margin-top: 27px;
-
+        margin-top: 25px;
     }
 
     .conteiner_btn {
         border-radius: 8px;
         border: 1px solid #E3E4E5;
-        padding-top: 16px;
-        padding-bottom: 16px;
+        padding-top: 12px;
+        padding-bottom: 12px;
         background: #667EEA;
         width: 100%;
         color: white;
-        font-size: 20px;
+        font-size: 18px;
         font-style: normal;
         /* font-weight: 600; */
         line-height: normal;
