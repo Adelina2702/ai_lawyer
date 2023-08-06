@@ -18,6 +18,7 @@ export default function Chat() {
 
 
     console.log("status: ", status.postMessageStatus)
+
     const handleInputChange = (e) => {
         setNewMessage(e.target.value);
     };
@@ -71,9 +72,6 @@ export default function Chat() {
 
                 <div className={styles.chat}>
                     <div ref={messageContainerRef} className={styles.messageContainer}>
-
-
-
 
 
                         {message?.map((message, index) => (

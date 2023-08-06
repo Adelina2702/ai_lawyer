@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Background from '../../images/background.png';
 import Input from '../../components/Input/CustomInput';
 import Email from '../../icons/Email';
@@ -7,8 +7,9 @@ import Button from '../../components/Button';
 import { useFormik } from 'formik';
 import { schema } from '../../utils/shcema';
 import { useDispatch } from 'react-redux';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { loginThunk } from '../../../redux/slices/LoginSlice';
+import { getCookie, setCookie } from '../../utils/cookie';
 
 const initialValues = {
   email: '',
@@ -17,16 +18,20 @@ const initialValues = {
 
 const LogIn = () => {
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
+
 
   const onSubmit = (values) => {
-    console.log("valu234e", values);
-    dispatch(loginThunk(values))
-  };  
+    console.log("hello world")
+    // console.log("valu234e", values);
+    dispatch(loginThunk({ values: values, navigate }))
+    // dispatch(registerThunk({ user: values, navigate }));
+  };
+
 
   const formik = useFormik({
     initialValues,
-    validationSchema: schema,
+    // validationSchema: schema,
     validateOnChange: false,
     onSubmit,
   });
@@ -52,14 +57,14 @@ const LogIn = () => {
             placeholder={'введите email'}
           />
           <Password
-          name='password'
-          type='password' 
-          value={formik.values.password}
-          onChange={formik.handleChange}
-          error={(formik.touched.password || formik.errors.password)}
-          helperText={formik.errors.password}
-          label={'Пароль'} 
-          placeholder={'введите пароль'} />
+            name='password'
+            type='password'
+            value={formik.values.password}
+            onChange={formik.handleChange}
+            error={(formik.touched.password || formik.errors.password)}
+            helperText={formik.errors.password}
+            label={'Пароль'}
+            placeholder={'введите пароль'} />
           <Button text={'Войти'} />
         </div>
       </form>

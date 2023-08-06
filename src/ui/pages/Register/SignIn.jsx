@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Background from '../../images/background.png';
 import User from '../../icons/User';
 import Email from '../../icons/Email';
@@ -6,10 +6,12 @@ import Button from '../../components/Button';
 import Input from '../../components/Input/CustomInput';
 import Password from '../../components/Input/Password';
 import { Link, } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { registerThunk } from '../../../redux/slices/RegisterSlice';
 import { useFormik } from 'formik';
 import { schema } from '../../utils/shcema';
+import { useNavigate } from 'react-router-dom';
+
 
 const initialValues = {
   username: '',
@@ -20,13 +22,19 @@ const initialValues = {
 
 export const SignIn = () => {
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
+
+  const { statusRegist } = useSelector((state) => state.register)
+
+  useEffect(() => {
+    console.log("statusRegist: ", statusRegist)
+  }, [statusRegist])
+
 
   const onSubmit = (values) => {
-    console.log("value", values);
-    console.log("formik: ", formik.values)
-    dispatch(registerThunk(values));
-    // navigate('/login');
+
+
+    dispatch(registerThunk({ user: values, navigate }));
   };
 
 
