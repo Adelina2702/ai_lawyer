@@ -1,30 +1,32 @@
-import { setCookie } from '../../ui/utils/cookie';
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { register } from '../../api/AuthApi';
-import { getApiErrorMessage } from '../../ui/utils/utils';
-
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { login } from "../../api/AuthApi";
+import { setCookie } from "../../ui/utils/cookie";
+import { getApiErrorMessage } from "../../ui/utils/utils";
 
 const initialState = {
-    username: '',
     password: '', 
     email: '',
     loading: false,
     error: '',
   };
 
-export const registerThunk = createAsyncThunk(
-    'user/auth',
-    async (user, { rejectWithValue }) => {
-      
+  export const loginThunk = createAsyncThunk(
+    'person/auth',
+    async (person, { rejectWithValue }) => {
       try {
-        console.log("user", user)
-        const response = await register(user);
+        console.log("user2", person)
+        const response = await login(person);
         console.warn(response.data.resultCode === 'SUCCESS');
   
         if (response.data.resultCode === 'SUCCESS') {
           setCookie(
             'token',
             response.data.result.authenticationResponse.jwtToken,
+            4
+          );
+          setCookie(
+            'refresh',
+            response.data.result.authenticationResponse.refreshToken,
             4
           );
           return response.data.result;
@@ -37,8 +39,8 @@ export const registerThunk = createAsyncThunk(
   );
 
 
-  const registerSlice = createSlice({
-    name: 'user',
+  const loginSlice = createSlice({
+    name: 'person',
     initialState,
     reducers: {
       setAccessToken: (state, action) => {
@@ -49,7 +51,6 @@ export const registerThunk = createAsyncThunk(
           ...state,
           accessToken: '',
           refreshToken: '',
-          username:'',
           email: '',
           password: '',
           loading: false,
@@ -58,20 +59,18 @@ export const registerThunk = createAsyncThunk(
       },
     },
     extraReducers(builder) {
-      builder.addCase(registerThunk.pending, (state) => {
+      builder.addCase(loginThunk.pending, (state) => {
         state.loading = true;
       });
-      builder.addCase(registerThunk.fulfilled, (state, { payload }) => {
+      builder.addCase(loginThunk.fulfilled, (state, { payload }) => {
         state.loading = false;
         state.accessToken = payload.authenticationResponse.jwtToken;
         state.password = payload.password;
         state.email = payload.email;
-        state.username = payload.username;
       });
     },
   });
   
-  export const { setAccessToken, logout } = registerSlice.actions;
+  export const { setAccessToken, logout } = loginSlice.actions;
   
-  export default registerSlice.reducer;
-  
+  export default loginSlice.reducer;

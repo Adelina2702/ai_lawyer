@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { filterSpecialization } from '../../../redux/slices/SpecialistsSlice';
-import styles from './style.module.css'
 
 
 const NavigateButtons = ({ buttonType, setButtonType, buttonProp }) => {
@@ -65,20 +64,11 @@ const NavigateButtons = ({ buttonType, setButtonType, buttonProp }) => {
           <button
             key={index}
             onClick={() => checkTab(btn)}
-
-            // className={
-            //   buttonType === btn.value
-
-            //     ? ` border-[#764BA2] border-2 mr-[60px] rounded-[24px] px-[12px] py-[17px]`
-            //     : `mr-[36px] border-2 border-[#000] rounded-[24px] px-[12px] py-[17px]`
-            // }>
-
-
             className={
               buttonType === btn.value
+                ? `bg-gradient-to-r from-pink-500 to-blue-500  text-[#ffff] border-2 border-[#fffcfc] mr-[60px] rounded-[24px] px-[25px]`
+                : `mr-[36px] border border-[#000] rounded-[20px] px-[25px]`
 
-                ? `${styles.check} border-[#764BA2] border-2 mr-[60px] rounded-[24px] px-[10px] py-[17px]`
-                : `mr-[36px] border-2 border-[#000] rounded-[24px] px-[12px] py-[17px]`
             }>
             {btn.label}
           </button>

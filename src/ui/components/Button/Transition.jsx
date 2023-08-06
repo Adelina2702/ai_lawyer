@@ -6,7 +6,7 @@ const Transition = ({ text, icon }) => {
       <div className='my-[16px] ml-[50px] absolute'>{icon}</div>
       <button
         type='submit'
-        className=' pl-[20px] flex justify-center w-[250px] p-[10px] mb-[20px] text-[18px] text-white bg-[#667EEA] hover:bg-[#764BA2] rounded-lg '>
+        className=' pl-[20px] flex justify-center w-[250px] p-[10px] mb-[20px] text-[18px] text-white bg-[#667EEA] hover:bg-gradient-to-r from-pink-500 to-blue-500] rounded-lg '>
         {text}
       </button>
     </div>

@@ -6,19 +6,28 @@ import Password from '../../components/Input/Password';
 import Button from '../../components/Button';
 import { useFormik } from 'formik';
 import { schema } from '../../utils/shcema';
+import { useDispatch } from 'react-redux';
+// import { useNavigate } from 'react-router-dom';
+import { loginThunk } from '../../../redux/slices/LoginSlice';
 
 const initialValues = {
   email: '',
   password: '',
 };
+
 const LogIn = () => {
-  const onSubmit = () => {
-    console.log('errror');
-  };
+  const dispatch = useDispatch();
+  // const navigate = useNavigate();
+
+  const onSubmit = (values) => {
+    console.log("valu234e", values);
+    dispatch(loginThunk(values))
+  };  
 
   const formik = useFormik({
     initialValues,
     validationSchema: schema,
+    validateOnChange: false,
     onSubmit,
   });
 
@@ -42,12 +51,15 @@ const LogIn = () => {
             icon={<Email />}
             placeholder={'введите email'}
           />
-          <Password 
+          <Password
+          name='password'
+          type='password' 
           value={formik.values.password}
           onChange={formik.handleChange}
           error={(formik.touched.password || formik.errors.password)}
           helperText={formik.errors.password}
-          label={'Пароль'} placeholder={'введите пароль'} />
+          label={'Пароль'} 
+          placeholder={'введите пароль'} />
           <Button text={'Войти'} />
         </div>
       </form>

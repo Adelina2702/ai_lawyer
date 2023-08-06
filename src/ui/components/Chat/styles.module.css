@@ -1,22 +1,21 @@
 .content {
     display: flex;
     justify-content: space-between;
-
     height: 100%;
 }
 
 
 .info {
+    margin-top: 20px;
     /* background: red; */
     /* margin-top: 10px; */
     margin-right: 50px;
     margin-left: 380px;
-    height: 100vh;
+    height: 100%;
     width: calc(100% - 430px);
     /* Учитывая левый отступ и правый отступ */
     padding-top: 10px;
     /* padding-top: 10px; */
-
     border-radius: 20px 20px 0px 0px;
     border-top: 1px solid #E3E4E5;
     border-right: 1px solid #E3E4E5;
