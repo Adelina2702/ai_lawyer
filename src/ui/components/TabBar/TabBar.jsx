@@ -4,20 +4,25 @@ import {  personIcon } from '../../images/index.js'
 import Plus from '../../icons/Plus'
 import Chat2 from '../../icons/Chat2'
 import SideBarW from '../../icons/SideBarW'
+import Logowh from '../../icons/ logowh'
+import { Link } from 'react-router-dom'
 
 export default function TabBar() {
     return (
         <div className={styles.tab}>
-
+          <Link to='/main'>
+<div className='py-[20px]'>
+  <Logowh/>
+</div>
+          </Link>
             <div className={styles.tab__header}>
 
                 <div className={styles.tab__header_img}>
                     <img src={personIcon} alt='/' className={styles.img} />
                 </div>
 
-                <p className={styles.tab__header_name}> Имя пользователя</p>
+                <p className={styles.tab__header_name}>Marat</p>
             </div>
-
             <div className={styles.newChat}>
                 <Plus />
                 <p className={styles.newChat_text}>Новый чат</p>

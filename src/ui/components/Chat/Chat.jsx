@@ -62,7 +62,7 @@ export default function Chat() {
                         <img className={styles.icon} src={mainIcon} alt='/' />
                     </div>
                     <div className={styles.text}>
-                        <h1 className={styles.text_title}>AI JURIST</h1>
+                        <h1 className={styles.text_title}>AIJURIST</h1>
                         <p className={styles.text_text}> Ваш проводник по законам КР</p>
                     </div>
                 </div>

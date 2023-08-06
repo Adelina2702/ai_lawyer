@@ -2,7 +2,6 @@
     cursor: pointer;
     width: 340px;
     height: 100%;
-    padding-top: 29px;
     padding-left: 17px;
     padding-bottom: 29px;
     position: fixed;
@@ -17,7 +16,6 @@
 
 .tab__header {
     display: flex;
-
     align-items: center;
 }
 
