@@ -11,7 +11,8 @@ export const getSpecialists = createAsyncThunk(
     'specialists',
     async (_, { rejectWithValue, }) => {
         try {
-            const response = await BASE_URL.get('/users');
+            const response = await BASE_URL.get('/users/?user_type=expert');
+            
             return response.data
         } catch (e) {
             return rejectWithValue(e.response.data.message);
